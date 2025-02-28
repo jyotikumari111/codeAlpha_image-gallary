@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header {
+    font-weight: bolder;
+    justify-content: center;
+}
+*:focus {
+    outline: none;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 50px; /* Added space below the header */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, rgb(184, 101, 173), rgb(255, 255, 255)); /* Added gradient */
+    font-family: sans-serif;
+}
+
+
+/* Gallery Styles */
+.gallery {
+    width: 80%;
+    height: 90vh;
+    max-height: 800px;
+    max-width: 1600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.gallery-img {
+    width: 30%;
+    height: 300px; /* Fixed height for uniformity */
+    margin: 10px;
+    overflow: hidden;
+    border: 2px solid white; /* Add a border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+.gallery-img:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+}
+
+
+.gallery-img:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 1s;
+}
+
+/* Popup Styles */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 80%;
+    max-width: 1600px;
+    height: 90vh;
+    max-height: 800px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.85); /* Darker background for better contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    overflow: hidden;
+    transition: transform 0.5s, opacity 0.5s; /* Smooth transition for opening */
+    opacity: 0;
+}
+
+
+/* Popup Active */
+.popup.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Ensure elements inside popup become visible */
+.popup.active .close-btn,
+.popup.active .image-name,
+.popup.active .index,
+.popup.active .large-image,
+.popup.active .arrow-btn {
+    opacity: 1;
+    transition: opacity 0.5s;
+    transition-delay: 0.5s;
+}
+
+/* Top Bar */
+.top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #000;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-weight: 300;
+}
+
+/* Image Name */
+.image-name {
+    opacity: 1; /* Now visible */
+}
+
+/* Close Button */
+.close-btn {
+    opacity: 1; /* Now visible */
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+/* Navigation Arrows */
+.arrow-btn {
+    opacity: 1; /* Now visible */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+.left-arrow {
+    left: 20px;
+}
+.right-arrow {
+    right: 20px;
+}
+.arrow-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Image Index */
+.index {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 80px;
+    font-weight: 100;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Large Image */
+.large-image {
+    margin-top: 5%;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    opacity: 1; /* Now visible */
+}
